@@ -4,10 +4,7 @@
   font-family: 'New Super Mario Font U', sans-serif;
 }
 
-html{
-  scroll-behavior: smooth;
-}
-
+/* counter section */
 .container {
   display: flex;
   justify-content: center;
@@ -24,7 +21,7 @@ html{
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  height: 40%;
+  height: 50%;
   width: 24%;
   border-radius: 10%;
 }
@@ -38,9 +35,9 @@ html{
 .counter {
   display: flex;
   margin-top: 5rem;
-  border: 10px black solid;
 }
 
+/* button section */
 button{
   font-size: 20px;
   color: whitesmoke;
@@ -48,16 +45,34 @@ button{
   background-color: red;
   border: none;
   cursor: pointer;
-  width: 150px;
-  height: 50px;
+  width: 10rem;
+  height: 3rem;
 }
 
 button:hover{
   background-color: white;
   color: red;
-  transform: scale(1.1);
 }
 
-.btn-box{
-  cursor: url(/assets/images/coin.png), auto;
+.btnbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+/* created box */
+#valueBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: red;
+  background-color: yellow;
+  margin: 3%;
+  border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+}
+
