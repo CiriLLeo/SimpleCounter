@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'New Super Mario Font U', sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+  border: 1px black solid;
+  height: 100vh;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.counter {
+  display: flex;
+  margin-top: 5rem;
+  border: 10px black solid;
+}
