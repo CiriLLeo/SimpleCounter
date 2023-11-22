@@ -22,7 +22,7 @@
   background-size: 100%;
   background-position: center;
   height: 50%;
-  width: 24%;
+  width: 30%;
   border-radius: 10%;
 }
 
@@ -61,6 +61,13 @@ button:hover{
   flex-direction: column;
 }
 
+#increaseBtn,
+#decreaseBtn,
+#resetBtn {
+  cursor: url(/assets/images/coin.png), default;
+}
+
+
 /* created box */
 #valueBox{
   display: flex;
@@ -71,8 +78,10 @@ button:hover{
   background-color: yellow;
   margin: 3%;
   border-radius: 100%;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   font-size: 2rem;
+  margin-top: -3rem;
+  margin-bottom: 1rem;
 }
 
