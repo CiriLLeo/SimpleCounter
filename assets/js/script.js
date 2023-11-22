@@ -1,4 +1,4 @@
- // DOM section
+ // DOM section 
 function createButton(counter, coin) {
   let button = document.createElement('button');
   button.setAttribute('id', counter);
@@ -23,6 +23,8 @@ function addButtons() {
     let addCoin = createButton('increaseBtn', 'Add Coin');
     let losecoin = createButton('decreaseBtn', 'Lose Coin');
     let resCoin = createButton('resetBtn', 'Reset Coin');
+
+    addCoin.
 
     btnBox.addEventListener('click', event =>{
       let target = event.target;
