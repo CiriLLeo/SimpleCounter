@@ -3,9 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Counter</title>
+    <title>GameBoy Counter</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
-    
+    <div class="gameboy" id="GameBoy">
+  
+        <div class="screen-area">
+          
+          <div class="power">
+            <div class="indicator">
+              <div class="led"></div>
+              <span class="arc" style="z-index:2"></span>
+              <span class="arc" style="z-index:1"></span>
+              <span class="arc" style="z-index:0"></span>
+            </div>
+            POWER
+          </div>
+          
+          <canvas class="real-display" id="mainCanvas"></canvas>
+          
+          <div class="label">
+            <div class="title">GAME BOY</div>
+            <div class="subtitle">
+              <span class="c">C</span><!--
+           --><span class="o1">O</span><!--
+           --><span class="l">L</span><!--
+           --><span class="o2">O</span><!--
+           --><span class="r">R</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="nintendo">Nintendo</div>
+
+        <div class="counter-buttons"></div>
+        
+        <div class="speaker">
+          <div class="dot placeholder"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot placeholder"></div>
+          
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+      
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+      
+          <div class="dot placeholder"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot closed"></div>
+          <div class="dot open"></div>
+          <div class="dot placeholder"></div>
+        </div>       
+      </div>
+      <script src="assets/js/script.js"></script>
 </body>
 </html>
