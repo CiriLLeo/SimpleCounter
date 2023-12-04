@@ -1,10 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Otteniamo riferimenti agli elementi HTML che ci interessano
   const counterDisplay = document.getElementById('mainCanvas');
+  const counterButtons = document.querySelector('.counter-buttons');
+  //creazione dei bottoni
   const incrementButton = document.createElement('button');
   const decrementButton = document.createElement('button');
   const resetButton = document.createElement('button');
-  const counterButtons = document.querySelector('.counter-buttons');
+
+  //do una classe
+  incrementButton.classList.add('increment-button');
+  decrementButton.classList.add('decrement-button');
+  resetButton.classList.add('reset-button');
+
 
   // Impostiamo il testo e gli stili dei bottoni
   incrementButton.textContent = '+';
@@ -46,8 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateCounterDisplay() {
     const context = counterDisplay.getContext('2d');
     context.clearRect(0, 0, counterDisplay.width, counterDisplay.height);
-    context.font = '30px Arial';
-    context.fillText(counterValue, 10, 50);
+    context.font = '70px New Super Mario Font U';
+  
+    const text = counterValue.toString();
+    const textWidth = context.measureText(text).width;
+  
+    const x = (counterDisplay.width - textWidth) / 2;
+    const y = (counterDisplay.height + 30) / 2; // Altezza del testo è approssimativamente 30
+  
+    context.fillText(text, x, y);
   }
 
   // Chiamiamo la funzione per inizializzare la visualizzazione del contatore
