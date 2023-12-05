@@ -1,34 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Otteniamo riferimenti agli elementi HTML che ci interessano
+  // Ottengo riferimenti agli elementi HTML
   const counterDisplay = document.getElementById('mainCanvas');
   const counterButtons = document.querySelector('.counter-buttons');
+
   //creazione dei bottoni
   const incrementButton = document.createElement('button');
   const decrementButton = document.createElement('button');
   const resetButton = document.createElement('button');
 
-  //do una classe
-  incrementButton.classList.add('increment-button');
-  decrementButton.classList.add('decrement-button');
+  //aggiungo una classe
   resetButton.classList.add('reset-button');
+  incrementButton.classList.add('increment-button');
+  decrementButton.classList.add('decrement-button');  
 
-
-  // Impostiamo il testo e gli stili dei bottoni
+  // Imposto il testo e gli stili dei bottoni
   incrementButton.textContent = '+';
   decrementButton.textContent = '-';
   resetButton.textContent = 'Reset';
 
-  // Aggiungiamo gli eventi ai bottoni
+  // Aggiungo gli eventi ai bottoni
   incrementButton.addEventListener('click', incrementCounter);
   decrementButton.addEventListener('click', decrementCounter);
   resetButton.addEventListener('click', resetCounter);
 
-  // Aggiungiamo i bottoni al container desiderato
+  // Aggiungo i bottoni al container desiderato
   counterButtons.appendChild(incrementButton);
   counterButtons.appendChild(decrementButton);
   counterButtons.appendChild(resetButton);
 
-  // Inizializziamo il contatore
+  // Inizializzo il contatore
   let counterValue = 0;
 
   // Funzione per incrementare il contatore
@@ -59,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const textWidth = context.measureText(text).width;
   
     const x = (counterDisplay.width - textWidth) / 2;
-    const y = (counterDisplay.height + 30) / 2; // Altezza del testo è approssimativamente 30
+    const y = (counterDisplay.height + 30) / 2;
   
     context.fillText(text, x, y);
   }
 
-  // Chiamiamo la funzione per inizializzare la visualizzazione del contatore
+  // Chiamo la funzione per inizializzare la visualizzazione del contatore
   updateCounterDisplay();
 });
