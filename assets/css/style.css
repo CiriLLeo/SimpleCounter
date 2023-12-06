@@ -4,11 +4,17 @@
 }
 
 html, body { 
-  width:100%; height:100%; margin:0; 
+  width:100%; 
+  height:100%; 
+  margin:0; 
 }
 
 body { 
-  padding:30px; display:flex; justify-content:center; align-items:center; background: linear-gradient(to top, #aaa 0%, white 100%);
+  padding:30px; 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  background: linear-gradient(to top, #aaa 0%, white 100%);
 }
 
 .gameboy {
@@ -119,6 +125,11 @@ body {
       margin-bottom:15px;
     }
 
+    #gifImage {
+      display: none;
+      width: 210px;
+      height:210px; 
+    }
     
     .label {
       position:relative;
