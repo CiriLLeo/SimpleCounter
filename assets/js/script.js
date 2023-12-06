@@ -102,6 +102,5 @@ document.addEventListener('DOMContentLoaded', function () {
     const y = (counterDisplay.height + 30) / 2;
   
     context.fillText(text, x, y);
-  }
-  
+  }  
 });
