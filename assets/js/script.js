@@ -1,17 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Ottengo riferimenti agli elementi HTML
   const counterDisplay = document.getElementById('mainCanvas');
+  const gifImage = document.getElementById('gifImage');
+  const audioIncrement = document.getElementById('audioIncrement');
+  const audioDecrement = document.getElementById('audioDecrement');
+  const audioReset = document.getElementById('audioReset');
   const counterButtons = document.querySelector('.counter-buttons');
+  const startButton = document.querySelector('.start');
+  const stopButton = document.querySelector('.stop');
 
-  //creazione dei bottoni
+  // Creo i bottoni
   const incrementButton = document.createElement('button');
   const decrementButton = document.createElement('button');
   const resetButton = document.createElement('button');
 
-  //aggiungo una classe
+  // Aggiungo una classe
   resetButton.classList.add('reset-button');
   incrementButton.classList.add('increment-button');
-  decrementButton.classList.add('decrement-button');  
+  decrementButton.classList.add('decrement-button');
 
   // Imposto il testo e gli stili dei bottoni
   incrementButton.textContent = '+';
@@ -19,9 +25,26 @@ document.addEventListener('DOMContentLoaded', function () {
   resetButton.textContent = 'Reset';
 
   // Aggiungo gli eventi ai bottoni
-  incrementButton.addEventListener('click', incrementCounter);
-  decrementButton.addEventListener('click', decrementCounter);
-  resetButton.addEventListener('click', resetCounter);
+  incrementButton.addEventListener('click', function () {
+    incrementCounter();
+    audioIncrement.currentTime = 0;
+    audioIncrement.play();
+  });
+
+  decrementButton.addEventListener('click', function () {
+    decrementCounter();
+    audioDecrement.currentTime = 0;
+    audioDecrement.play();
+  });
+
+  resetButton.addEventListener('click', function () {
+    resetCounter();
+    audioReset.currentTime = 0;
+    audioReset.play();
+  });
+
+  startButton.addEventListener('click', startGame);
+  stopButton.addEventListener('click', stopGame);
 
   // Aggiungo i bottoni al container desiderato
   counterButtons.appendChild(incrementButton);
@@ -31,22 +54,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // Inizializzo il contatore
   let counterValue = 0;
 
-  // Funzione per incrementare il contatore
+  // Funzioni del counter
   function incrementCounter() {
     counterValue++;
     updateCounterDisplay();
   }
 
-  // Funzione per decrementare il contatore
   function decrementCounter() {
     counterValue--;
     updateCounterDisplay();
   }
 
-  // Funzione per resettare il contatore
   function resetCounter() {
     counterValue = 0;
     updateCounterDisplay();
+  }
+
+  //Funzione per far partire e fermare il gioco
+  function startGame() {
+    counterDisplay.style.display = 'none';
+    gifImage.style.display = 'block';
+
+    const soundTrack = document.getElementById('soundTrack')
+    soundTrack.play();
+  }
+  
+  
+  function stopGame() {
+    counterDisplay.style.display = 'block';
+    gifImage.style.display = 'none';
+
+    const soundTrack = document.getElementById('soundTrack')
+    soundTrack.pause();
+    soundTrack.currentTime = 0;
   }
 
   // Funzione per aggiornare la visualizzazione del contatore nel canvas
