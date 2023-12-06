@@ -125,6 +125,16 @@ body {
       margin-bottom:15px;
     }
 
+    #counterText {
+      font-size: 66px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #E1B530; /* Imposta il colore del testo a bianco o adatto al tuo design */
+    }
+
     #gifImage {
       display: none;
       width: 210px;

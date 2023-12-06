@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Ottengo riferimenti agli elementi HTML
+  const counterText = document.getElementById('counterText');
   const counterDisplay = document.getElementById('mainCanvas');
   const gifImage = document.getElementById('gifImage');
   const audioIncrement = document.getElementById('audioIncrement');
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Inizializzo il contatore
   let counterValue = 0;
+  let gamePaused = false;
 
   // Funzioni del counter
   function incrementCounter() {
@@ -72,35 +74,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //Funzione per far partire e fermare il gioco
   function startGame() {
-    counterDisplay.style.display = 'none';
-    gifImage.style.display = 'block';
-
-    const soundTrack = document.getElementById('soundTrack')
+    const soundTrack = document.getElementById('soundTrack');
     soundTrack.play();
-  }
-  
-  
-  function stopGame() {
-    counterDisplay.style.display = 'block';
-    gifImage.style.display = 'none';
 
-    const soundTrack = document.getElementById('soundTrack')
+    gamePaused = true;
+    updateCounterDisplay();
+  }
+
+  function stopGame() {
+    const soundTrack = document.getElementById('soundTrack');
     soundTrack.pause();
     soundTrack.currentTime = 0;
+
+    gamePaused = false;
+    updateCounterDisplay();
   }
 
   // Funzione per aggiornare la visualizzazione del contatore nel canvas
   function updateCounterDisplay() {
+    counterText.textContent = gamePaused ? counterValue : '';
+
     const context = counterDisplay.getContext('2d');
     context.clearRect(0, 0, counterDisplay.width, counterDisplay.height);
     context.font = '70px New Super Mario Font U';
-  
-    const text = counterValue.toString();
-    const textWidth = context.measureText(text).width;
-  
-    const x = (counterDisplay.width - textWidth) / 2;
-    const y = (counterDisplay.height + 30) / 2;
-  
-    context.fillText(text, x, y);
-  }  
+
+    if (!gamePaused) {
+      const text = counterValue.toString();
+      const textWidth = context.measureText(text).width;
+      const x = (counterDisplay.width - textWidth) / 2;
+      const y = (counterDisplay.height + 30) / 2;
+      context.fillText(text, x, y);
+      counterDisplay.style.display = 'block';
+      gifImage.style.display = 'none';
+    } else {
+      counterDisplay.style.display = 'none';
+      gifImage.style.display = 'block';
+    }
+  }
 });
