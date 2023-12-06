@@ -103,7 +103,5 @@ document.addEventListener('DOMContentLoaded', function () {
   
     context.fillText(text, x, y);
   }
-
-  // Chiamo la funzione per inizializzare la visualizzazione del contatore
-  updateCounterDisplay();
+  
 });
