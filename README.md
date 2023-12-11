@@ -63,8 +63,13 @@ Develop a JS app that lets the user increment or decrement the counter value. En
 
 ## Development
 
-### The idea
+### The idea <strong></strong>
 
+Embark on a nostalgic journey with <strong>Counter</strong>, a project that seamlessly blends classic gaming elements with modern web development. The heart of this endeavor lies in the creation of a dynamic interface where the +, -, and <strong>reset</strong> buttons come to life through the magic of JavaScript. But that's just the beginning.
+
+Not content with mere functionality, I extended the project's charm by encapsulating the essence of a beloved gaming icon – <strong>the Game Boy</strong>. With HTML and CSS as my canvas, I meticulously crafted the form of this virtual Game Boy, marrying aesthetics with interactivity.
+
+However, the adventure didn't stop there. Inspired by the pixelated realms of <strong>Super Mario</strong> and the whimsical melodies that accompanied our gaming escapades, I decided to elevate the experience. Introducing the start and stop buttons, these not only initiate the game of Super Mario but also trigger a symphony of iconic tunes, creating an immersive trip down memory lane.
 
 
 ### Built With
