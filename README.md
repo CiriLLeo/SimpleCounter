@@ -85,6 +85,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
+[![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/cirilleo/) 
+[![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/leonardo-cirillo-5217421a1/) 
+[![Github](https://skillicons.dev/icons?i=github)](https://github.com/CiriLLeo)
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
