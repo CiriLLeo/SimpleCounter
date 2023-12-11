@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function toggleGame(pause) {
     if (pause) {
-      audio.soundtrack.setLoop(true);  // Imposta il loop su true
+      audio.soundtrack.setLoop(true); 
       audio.soundtrack.play();
     } else {
-      audio.soundtrack.setLoop(false);  // Imposta il loop su false
+      audio.soundtrack.setLoop(false);
       audio.soundtrack.stop();
     }
     counter.paused = pause;
