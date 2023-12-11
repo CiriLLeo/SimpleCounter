@@ -69,7 +69,7 @@ Develop a JS app that lets the user increment or decrement the counter value. En
 
 ### Built With
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev)
+![My Skills](https://skillicons.dev/icons?i=html,css,js)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
