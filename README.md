@@ -42,7 +42,7 @@
 
 ## The Project
 <div align="center">
-<a href="https://cirilleo.github.io/SimpleCounter/">
+<a href="https://cirilleo.github.io/SimpleCounter/" target="_blank">
     <img src="assets/images/screenshot.gif" alt="Screenshot" width="300" height="400">
   </a>
   </div> <br>
