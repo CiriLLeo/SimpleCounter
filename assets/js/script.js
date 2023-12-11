@@ -1,114 +1,116 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Ottengo riferimenti agli elementi HTML
-  const counterText = document.getElementById('counterText');
-  const counterDisplay = document.getElementById('mainCanvas');
-  const gifImage = document.getElementById('gifImage');
-  const audioIncrement = document.getElementById('audioIncrement');
-  const audioDecrement = document.getElementById('audioDecrement');
-  const audioReset = document.getElementById('audioReset');
-  const counterButtons = document.querySelector('.counter-buttons');
-  const startButton = document.querySelector('.start');
-  const stopButton = document.querySelector('.stop');
+  const counter = {
+    value: 0,
+    paused: false,
+    display: document.getElementById('mainCanvas'),
+    text: document.getElementById('counterText'),
+  };
 
-  // Creo i bottoni
-  const incrementButton = document.createElement('button');
-  const decrementButton = document.createElement('button');
-  const resetButton = document.createElement('button');
+  const audio = {
+    increment: createAudio('audioIncrement'),
+    decrement: createAudio('audioDecrement'),
+    reset: createAudio('audioReset'),
+    soundtrack: createAudio('soundTrack'),
+  };
 
-  // Aggiungo una classe
-  resetButton.classList.add('reset-button');
-  incrementButton.classList.add('increment-button');
-  decrementButton.classList.add('decrement-button');
+  const buttons = {
+    increment: createButton('+', 'increment-button', incrementCounter),
+    decrement: createButton('-', 'decrement-button', decrementCounter),
+    reset: createButton('Reset', 'reset-button', resetCounter),
+    start: document.querySelector('.start'),
+    stop: document.querySelector('.stop'),
+  };
 
-  // Imposto il testo e gli stili dei bottoni
-  incrementButton.textContent = '+';
-  decrementButton.textContent = '-';
-  resetButton.textContent = 'Reset';
+  appendButtonsToContainer([buttons.increment, buttons.decrement, buttons.reset], document.querySelector('.counter-buttons'));
 
-  // Aggiungo gli eventi ai bottoni
-  incrementButton.addEventListener('click', function () {
-    incrementCounter();
-    audioIncrement.currentTime = 0;
-    audioIncrement.play();
+  buttons.start.addEventListener('click', () => {
+    if (!counter.paused) {
+      toggleGame(true);
+    }
+  });
+  
+  buttons.stop.addEventListener('click', () => {
+    if (counter.paused) {
+      toggleGame(false);
+    }
   });
 
-  decrementButton.addEventListener('click', function () {
-    decrementCounter();
-    audioDecrement.currentTime = 0;
-    audioDecrement.play();
-  });
+  function createButton(text, className, clickHandler) {
+    const button = document.createElement('button');
+    button.classList.add(className);
+    button.textContent = text;
+    button.addEventListener('click', clickHandler);
+    return button;
+  }
 
-  resetButton.addEventListener('click', function () {
-    resetCounter();
-    audioReset.currentTime = 0;
-    audioReset.play();
-  });
+  function appendButtonsToContainer(buttons, container) {
+    buttons.forEach(button => container.appendChild(button));
+  }
 
-  startButton.addEventListener('click', startGame);
-  stopButton.addEventListener('click', stopGame);
+  function createAudio(id) {
+    const audioElement = document.getElementById(id);
+    return {
+      play: () => {
+        audioElement.currentTime = 0;
+        audioElement.play();
+      },
+      stop: () => {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+      },
+      setLoop: (loop) => {
+        audioElement.loop = loop;
+      },
+    };
+  }
 
-  // Aggiungo i bottoni al container desiderato
-  counterButtons.appendChild(incrementButton);
-  counterButtons.appendChild(decrementButton);
-  counterButtons.appendChild(resetButton);
+  function toggleGame(pause) {
+    if (pause) {
+      audio.soundtrack.setLoop(true);  // Imposta il loop su true
+      audio.soundtrack.play();
+    } else {
+      audio.soundtrack.setLoop(false);  // Imposta il loop su false
+      audio.soundtrack.stop();
+    }
+    counter.paused = pause;
+    updateCounterDisplay();
+  }
 
-  // Inizializzo il contatore
-  let counterValue = 0;
-  let gamePaused = false;
-
-  // Funzioni del counter
   function incrementCounter() {
-    counterValue++;
+    counter.value++;
+    audio.increment.play();
     updateCounterDisplay();
   }
 
   function decrementCounter() {
-    counterValue--;
+    counter.value--;
+    audio.decrement.play();
     updateCounterDisplay();
   }
 
   function resetCounter() {
-    counterValue = 0;
+    counter.value = 0;
+    audio.reset.play();
     updateCounterDisplay();
   }
 
-  //Funzione per far partire e fermare il gioco
-  function startGame() {
-    const soundTrack = document.getElementById('soundTrack');
-    soundTrack.play();
-
-    gamePaused = true;
-    updateCounterDisplay();
-  }
-
-  function stopGame() {
-    const soundTrack = document.getElementById('soundTrack');
-    soundTrack.pause();
-    soundTrack.currentTime = 0;
-
-    gamePaused = false;
-    updateCounterDisplay();
-  }
-
-  // Funzione per aggiornare la visualizzazione del contatore nel canvas
   function updateCounterDisplay() {
-    counterText.textContent = gamePaused ? counterValue : '';
-
-    const context = counterDisplay.getContext('2d');
-    context.clearRect(0, 0, counterDisplay.width, counterDisplay.height);
+    counter.text.textContent = counter.paused ? counter.value : '';
+    const context = counter.display.getContext('2d');
+    context.clearRect(0, 0, counter.display.width, counter.display.height);
     context.font = '70px New Super Mario Font U';
 
-    if (!gamePaused) {
-      const text = counterValue.toString();
+    if (!counter.paused) {
+      const text = counter.value.toString();
       const textWidth = context.measureText(text).width;
-      const x = (counterDisplay.width - textWidth) / 2;
-      const y = (counterDisplay.height + 30) / 2;
+      const x = (counter.display.width - textWidth) / 2;
+      const y = (counter.display.height + 30) / 2;
       context.fillText(text, x, y);
-      counterDisplay.style.display = 'block';
-      gifImage.style.display = 'none';
+      counter.display.style.display = 'block';
+      document.getElementById('gifImage').style.display = 'none';
     } else {
-      counterDisplay.style.display = 'none';
-      gifImage.style.display = 'block';
+      counter.display.style.display = 'none';
+      document.getElementById('gifImage').style.display = 'block';
     }
   }
 });
