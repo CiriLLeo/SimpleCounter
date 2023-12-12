@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/CiriLLeo/SimpleCounter">
+  <a href="https://gameboycounter.netlify.app/">
     <img src="assets\images\Favicon\android-chrome-192x192.png" alt="Logo" width="50" height="70">
   </a>
 
