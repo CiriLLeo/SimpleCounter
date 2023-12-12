@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://gameboycounter.netlify.app/">
+  <a href="https://github.com/CiriLLeo/SimpleCounter">
     <img src="assets\images\Favicon\android-chrome-192x192.png" alt="Logo" width="50" height="70">
   </a>
 
@@ -42,7 +42,7 @@
 
 ## The Project
 <div align="center">
-<a href="https://cirilleo.github.io/SimpleCounter/" target="_blank">
+<a href="https://gameboycounter.netlify.app/" target="_blank">
     <img src="assets/images/screenshot.gif" alt="Screenshot" width="300" height="400">
   </a>
   </div> <br>
