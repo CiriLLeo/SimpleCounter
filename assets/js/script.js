@@ -19,18 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
     reset: createButton('Reset', 'reset-button', resetCounter),
     start: document.querySelector('.start'),
     stop: document.querySelector('.stop'),
-  };
+  }; 
 
   appendButtonsToContainer([buttons.increment, buttons.decrement, buttons.reset], document.querySelector('.counter-buttons'));
 
-  buttons.start.addEventListener('click', () => {
-    if (!counter.paused) {
-      toggleGame(true);
-    }
-  });
+  document.querySelector('.start-stop').addEventListener('click', function (event) {
+    const target = event.target;
   
-  buttons.stop.addEventListener('click', () => {
-    if (counter.paused) {
+    if (target.classList.contains('start') && !counter.paused) {
+      toggleGame(true);
+    } else if (target.classList.contains('stop') && counter.paused) {
       toggleGame(false);
     }
   });
